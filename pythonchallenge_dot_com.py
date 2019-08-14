@@ -1,3 +1,4 @@
+# Challenges from pythonchallenge.com
 #Challenge No. 1
 s = 'map'
 for x in s:
