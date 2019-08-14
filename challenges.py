@@ -15,9 +15,9 @@ print(''.join(re.findall('[a-z]', lines)))
 #Challenge No. 3
 import re
 
-def neighbours(c):
-    unfiltered = [c-3,c-2,c-1,c+1,c+2,c+3]
-    return [r for r in unfiltered if (r>-1 and r < 81)]
+# def neighbours(c):
+#     unfiltered = [c-3,c-2,c-1,c+1,c+2,c+3]
+#     return [r for r in unfiltered if (r>-1 and r < 81)]
 
 garbage = open("garbage.txt", "r").read()
 
@@ -37,6 +37,7 @@ for i in range(400):
     soup = BeautifulSoup(response.text, "html.parser")
     url = 'http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=' + soup.text.split(' ')[-1]
     print(soup.text)
+#peak.html
 
 ##############################################################
 
@@ -50,7 +51,7 @@ output = pickle.load(response)
 
 for each in output:
     print("".join([k * v for k, v in each]))
-CHHANEL
+#Channel
 
 ##############################################################
 
@@ -71,3 +72,7 @@ print(res.decode("utf-8"))
 # 46145
 # Collect the comments.
 # HOCKEY
+
+# it's in the air -> OXYGEN 
+
+#Challenge No. 7 
