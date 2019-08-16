@@ -249,6 +249,47 @@ image.show()
 ##############################################################
 
 #Challenge No. 17
+
+# level 4 -> Cookies -> busynothing 
+from urllib.request import urlopen
+from urllib.parse import unquote_to_bytes
+import re, bz2
+
+index = '12345'
+data = ''
+while(1):
+	url = urlopen('http://www.pythonchallenge.com/pc/def/linkedlist.php?busynothing='+index)
+	cookie = url.getheader("Set-Cookie")
+	data += re.search("info=(.*?);", cookie).group(1)
+	match = re.search("the next busynothing is (\d+)", url.read().decode())
+	if match == None:
+		break
+	else:
+		index = match.group(1)
+data = unquote_to_bytes(data.replace("+", " "))
+print(bz2.decompress(data).decode())
+
+#is it the 26th already? call his father and inform him that "the flowers are on their way". he'll understand.
+
+from xmlrpc.client import  ServerProxy
+connection = ServerProxy("http://www.pythonchallenge.com/pc/phonebook.php")
+print(connection.phone('Leopold'))
+
+#http://www.pythonchallenge.com/pc/return/violin.html
+#no! i mean yes! but ../stuff/violin.php.
+
+from urllib.request import Request, urlopen
+from urllib.parse import quote_plus
+
+url = "http://www.pythonchallenge.com/pc/stuff/violin.php"
+msg = "the flowers are on their way"
+req = Request(url, headers = { "Cookie": "info=" + quote_plus(msg)})
+
+print(urlopen(req).read().decode())
+
+##############################################################
+
+#Challenge No. 18
 import gzip, difflib
 data = gzip.open("deltas.gz")
 d1, d2 = [], []
@@ -277,4 +318,4 @@ f2.close()
 
 ##############################################################
 
-#Challenge No. 18
+#Challenge No. 19
