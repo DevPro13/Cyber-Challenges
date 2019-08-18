@@ -319,3 +319,116 @@ f2.close()
 ##############################################################
 
 #Challenge No. 19
+
+#base64 decode -> indian.wav -> sorry -> bigendian -> new.wav -> idiot
+
+##############################################################
+
+#Challenge No. 20
+
+import re 
+import requests
+
+res = requests.get('http://www.pythonchallenge.com/pc/hex/unreal.jpg', auth=('butter','fly'))
+print(res.headers)
+
+# Content-Range: bytes 0-30202/2123456789
+
+pattern = re.compile('bytes (\d+)-(\d+)/(\d+)')
+content_range = res.headers['content-range']
+(start, end, length) = pattern.search(content_range).groups()
+
+while True:
+    try:
+        headers = {"Range":'bytes=%i-' % (int(end) + 1)}
+        response = requests.get('http://www.pythonchallenge.com/pc/hex/unreal.jpg', auth=('butter','fly'), headers=headers)
+        print(response.text)
+        print(response.headers)
+        (start, end, length) = pattern.search(response.headers['content-range']).groups()
+    except:
+        break
+
+'''
+{'Content-Type': 'image/jpeg', 'Content-Range': 'bytes 0-30202/2123456789', 'Transfer-Encoding': 'chunked', 'Date': 'Sun, 18 Aug 2019 14:27:37 GMT', 'Server': 'lighttpd/1.4.35'}
+Why don't you respect my privacy?
+
+{'Content-Type': 'application/octet-stream', 'Content-Transfer-Encoding': 'binary', 'Content-Range': 'bytes 30203-30236/2123456789', 'Transfer-Encoding': 'chunked', 'Date': 'Sun, 18 Aug 2019 14:27:38 GMT', 'Server': 'lighttpd/1.4.35'}
+we can go on in this way for really long time.
+
+{'Content-Type': 'application/octet-stream', 'Content-Transfer-Encoding': 'binary', 'Content-Range': 'bytes 30237-30283/2123456789', 'Transfer-Encoding': 'chunked', 'Date': 'Sun, 18 Aug 2019 14:27:40 GMT', 'Server': 'lighttpd/1.4.35'}
+stop this!
+
+{'Content-Type': 'application/octet-stream', 'Content-Transfer-Encoding': 'binary', 'Content-Range': 'bytes 30284-30294/2123456789', 'Transfer-Encoding': 'chunked', 'Date': 'Sun, 18 Aug 2019 14:27:45 GMT', 'Server': 'lighttpd/1.4.35'}
+invader! invader!
+
+{'Content-Type': 'application/octet-stream', 'Content-Transfer-Encoding': 'binary', 'Content-Range': 'bytes 30295-30312/2123456789', 'Transfer-Encoding': 'chunked', 'Date': 'Sun, 18 Aug 2019 14:27:46 GMT', 'Server': 'lighttpd/1.4.35'}
+ok, invader. you are inside now. 
+
+{'Content-Type': 'application/octet-stream', 'Content-Transfer-Encoding': 'binary', 'Content-Range': 'bytes 30313-30346/2123456789', 'Transfer-Encoding': 'chunked', 'Date': 'Sun, 18 Aug 2019 14:27:48 GMT', 'Server': 'lighttpd/1.4.35'}
+
+{'Content-type': 'text/html; charset=UTF-8', 'Content-Length': '0', 'Date': 'Sun, 18 Aug 2019 14:27:51 GMT', 'Server': 'lighttpd/1.4.35'}
+'''
+
+#  http://www.pythonchallenge.com/pc/hex/invader.html
+#Yes! that's you!
+
+headers = {"Range":'bytes=%i-' % (int(length) + 1)}
+response = response = requests.get('http://www.pythonchallenge.com/pc/hex/unreal.jpg', auth=('butter','fly'), headers=headers)
+
+#esrever ni emankcin wen ruoy si drowssap eht
+#the password is your new nickname in reverse
+# password=redavani
+# nickname=invader
+
+headers = {"Range":'bytes=2123456743-'}
+response = response = requests.get('http://www.pythonchallenge.com/pc/hex/unreal.jpg', auth=('butter','fly'), headers=headers)
+
+#and it is hiding at 1152983631.
+
+headers = {"Range":'bytes=1152983631-'}
+response = response = requests.get('http://www.pythonchallenge.com/pc/hex/unreal.jpg', auth=('butter','fly'), headers=headers)
+
+with open("data.zip", "wb") as f:
+    f.write(response.read())
+
+#extact password redavni
+# readme.txt
+
+# Yes! This is really level 21 in here. And yes, After you solve it, you'll be in level 22!
+
+# Now for the level:
+
+# We used to play this game when we were kids
+# When I had no idea what to do, I looked backwards.
+
+##############################################################
+
+#Challenge No. 21
+
+import zlib, bz2
+
+result = ""
+
+with open("package.pack", "rb") as f:
+    data = f.read()
+
+    while True:
+        if data.startswith(b'x\x9c'):
+            data = zlib.decompress(data)
+            result += ''
+        elif data.startswith(b'BZh'):
+            data = bz2.decompress(data)
+            result += '#'
+        elif data.endswith(b'\x9cx'):
+            data = data[::-1]
+            result += '\n'
+        else:
+            break
+    print(result)
+
+# copper
+
+##############################################################
+
+#Challenge No. 22
+
