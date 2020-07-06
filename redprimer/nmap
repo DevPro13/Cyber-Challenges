@@ -1,0 +1,15 @@
+Common Flags:
+
+stealth scan: -sS
+udp scan: -sU
+OS detection: -O
+service version detection: -sV
+verbose: -v
+very verbose: -vv
+output in xml: -oX
+aggressive: -A
+insane timing: -T5
+port specify: -p
+scan all port: -p-
+not ping host: -Pn
+

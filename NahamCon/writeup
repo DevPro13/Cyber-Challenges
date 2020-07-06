@@ -1,0 +1,51 @@
+# Warmup 
+
+## Read The Rules
+	Source 
+	flag{we_hope_you_enjoy_the_game}
+
+## CLIsay
+	Strings
+	flag{flag{Y0u_c4n_r3Ad_M1nd5}
+
+## Metameme
+	Strings
+	flag{N0t_7h3_4cTuaL_Cr3At0r}
+
+## Mr. Robot
+	robots.txt
+	flag{welcome_to_robots.txt}
+
+## UGGC 
+	cookies
+	flag{H4cK_aLL_7H3_C0okI3s}
+
+## Pang
+	Strings
+	flag{wham_bam_thank_you_for_the_flag_maam}
+
+# Web 
+
+## Agent 95
+	User-Agent
+	flag{user_agents_undercover}
+
+## Localghost
+	Storage
+	JCTF{spoooooky_ghosts_in_storage}
+
+# Mobile
+
+## Candroid
+	Strings
+	flag{4ndr0id_1s_3asy}
+
+# Crytography
+
+## Homecooked
+	Prime 
+	flag{pR1m3s_4re_co0ler_Wh3n_pal1nDr0miC}
+
+## Ooo-la-la
+	RSA
+	flag{ooo_la_la_those_are_sexy_primes}

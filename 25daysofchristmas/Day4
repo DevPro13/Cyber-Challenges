@@ -1,0 +1,14 @@
+### Basic Linux
+
+ssh login, cat, grep, regex, sha1sum and find 
+
+```python
+visible files: 8
+content of file5: recipes
+string 'password' in: file6
+IP address present in a file: 10.0.0.05 
+# regex pattern for ip '([0-9]{1,3}[\.]){3}[0-9]{1,3}'
+users: 3
+sha1sum of file8: fa67ee594358d83becdd2cb6c466b25320fd2835
+mcsysadmin's password: $6$jbosYsU/$qOYToX/hnKGjT0EscuUIiIqF8GHgokHdy/Rg/DaB.RgkrbeBXPdzpHdMLI6cQJLdFlS4gkBMzilDBYcQvu2ro/
+```

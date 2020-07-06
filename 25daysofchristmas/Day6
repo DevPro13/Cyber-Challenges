@@ -1,0 +1,29 @@
+ta Exfiltration Techniques
+
+Data Exfiltration is the technique of transferring unauthorized data out of the network.
+
+Easy way to detect is to look up at wireshark's logs to check if unauthorized data's are not leaked.
+
+Advanced Persistant Threats, APT are harder to detect as they can be hidden deep inside abusing kerberos and its ticket granting system to gain permanent access.
+
+**Note**: Kerberos is a computer-network authentication protocol that works on the basis of tickets to allow nodes communicating over a non-secure network to prove their identity to one another in a secure manner.
+
+- DNS
+- FTP / SFTP / SMB based file transfer
+- HTTP / HTTPS
+- Steganography
+- ICMP
+
+We can filter DNS queries using Wireshark, some hex data are transferred which can be converted to ascii using xxd 
+
+Also since DNS was done maybe somethings were retrieved, http filter shows a zip file and a image file. They can be exported, from **file→export objects →http→file**
+
+zipfile had a password, tools like fcrackzip can be used to crack password with a dictionary attack.
+
+steghide can be used to extract information from files hidden.
+
+```python
+data exfiltrated: Candy Can Serial Number 8491
+Timmy wanted to be: Pentester
+Hidden in file: RFC527
+```

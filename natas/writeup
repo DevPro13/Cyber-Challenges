@@ -1,0 +1,87 @@
+Level 0
+Username: natas0
+Password: natas0
+URL:      http://natas0.natas.labs.overthewire.org
+
+Level 0 -> Level 1
+view-source
+Password: gtVrDuiDfck831PqWsLEZy5gyDz1clto
+
+Level 1 -> Level 2
+view-source 
+Password: ZluruAthQk7Q2MqmDeTiUij2ZvWy2mBi
+
+Level 2 -> Level 3
+view-source has a link to /files/ dir 
+Password: sJIJNW6ucpu6HPZ1ZAchaDtwd7oGrD14
+
+Level 3 -> Level 4
+view-source has a hint of robots.txt
+Password: Z9tkRkWmpt9Qr7XrR5jWRkgOU901swEZ
+
+Level 4 -> Level 5
+curl referer 
+Password: iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq
+
+Level 5 -> Level 6
+change loggedin cookie value
+Password: aGoY4q2Dc6MgDq4oL4YtoKtyAg9PeHa1
+
+Level 6 -> Level 7
+view-source has a link to includes/secret.inc
+Password: 7z3hEENjQtflzgnT29q7wAvMNfZdh0i9
+
+Level 7 -> Level 8
+view-source has the pswd path which can be injected in to url
+Password: DBfUBfqQG69KvJvJ1iAbMoIpwSNQ9bWe 
+
+Level 8 -> Level 9
+view-source has a function that encoded secret key
+Password: W0mMhUcRRnG8dcghE4qvk3JA9lGt8nDl
+
+Level 9 -> Level 10
+view-source has a passthru function that executes queries
+Password: nOpp1igQAkUzaI1GUUjzn1bFVj7xCNzu
+
+Level 10 -> Level 11
+similar to prev but semicolon is blocked, different representation of semicolon didn't work, we know grep can search for multiple files, so we pass the passwd file too in the query
+Password: U82q5TCMMQ9xuFoI3dYX61s7OZD9JKoK	
+
+Level 11 -> Level 12
+view source has a lot going on, we have cookies encrypted using xor and base64. We can crack the key by reverse xoring then create a new cookie for showpassword=yes to get the password 
+Password: EDXp0pS26wLKHZy1rDBPUZk0RKfLGIR3
+
+Level 12 -> Level 13
+Deals with file injection, a random string is generated and file we upload is moved to the path upload/random_string.our_extension. We just inject a php file asjpg since it doesn't verify the contents using burpsuite intercept.
+Password: jmLTY0qiPZBbaKc9341cqPQZBJv7MQbY
+
+Level 13 -> Level 14
+Similar to above but checks if file is jpg, which can be bypassed by adding magic number '\xFF\xD8\xFF\xE0' in front of the file using editors like hexedit, then burpsuite can be used to intercept and change the requests to get the password.
+Password: Lg96M10TdfaPyVBkJdjymbllQ5L6qdl1
+
+Level 14 -> Level 15
+Deals with SQL Injection
+Injection: natas14 " or 1=1 #
+Password: AwWj0w5cvxrZiONgZ9J5stNVkmxdk39J
+
+Level 15 -> Level 16
+Deals with blind sqli, substr doesn't differentiate cases, so we need to compare ascii values
+Injection: natas16 " and ascii(substr(password,index,1))=ord(char) #
+Password: WaIHEacj63wnNIBROHeqi3p9t0m5nhmh
+
+Level 16 -> Level 17:
+$() are not restricted, so we can run arbitary command inside like $(echo test)
+We can thus check if characters are in natas17 file or not, make a filtered charset and bruteforce to get the actual password.
+Password: 8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw
+
+Level 17 -> Level 18:
+Similar to, 15->16 but no output is displayed, we can so decide if hypothesis is correct using delay factor
+Password: xvKIqDjy4OPv7wCRgDlmj0pFsCsDjhdP
+
+Level 18 -> Level 19
+Deals with cookies and sessions, a random PHPSESSID is given, so just bruteforce the cookie 
+Password: 4IwIrekcuZlA9OsjOkoUtwU6lhokCPYs
+
+Level 19 -> Level 20
+Similar as above sessions are just encoded with a pattern which can be used to bruteforce ids.
+Password: eofm3Wsshxc5bwtVnEuGIlr7ivb9KABF

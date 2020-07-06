@@ -1,0 +1,22 @@
+sess = ''
+ring OSINT
+
+OSINT stands for Open Source Intelligence Techniques, data collected from publicly available sources to be used in an intelligence context.
+
+Exiftool for reading image metadata's
+
+Wayback machine for seeing the past snapshots of websites
+
+Google Image Search for searching based on image
+
+```python
+# exiftool image gives the creators name, 
+# who has a twitter account and a wordpress site
+
+DOB: December 29, 1900 # from twitter
+Occupation: Santa's Helpers # from twitter
+Phone; iphone # from twitter
+photography started: 23/10/2014 # from site using wayback machine
+Famous Person: Ada Lovelac # using goole image search
+```
+
