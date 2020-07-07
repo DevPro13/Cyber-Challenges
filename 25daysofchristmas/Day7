@@ -1,0 +1,6 @@
+#exploring networking nmap & ssh 
+
+TCP ports under 1000 open: 3
+Name of OS of the host: linux
+version of ssh running: 7.4
+file accessible in the server: interesting.file

@@ -1,0 +1,7 @@
+# nmap -A -vv ip_address -p- # scans all port
+# find /home/igor/flag1.txt -exec cat /home/igor/flag1.txt \;  
+# find /usr/bin/ -perm 4000 -user root -exec ls -ldb {} \; 2>>/dev/null 
+ssh port: 65534
+flag1: THM{d3f0708bdd9accda7f937d013eaf2cd8}
+flag2: THM{8c8211826239d849fa8d6df03749c3a2}
+

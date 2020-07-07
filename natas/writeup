@@ -85,3 +85,10 @@ Password: 4IwIrekcuZlA9OsjOkoUtwU6lhokCPYs
 Level 19 -> Level 20
 Similar as above sessions are just encoded with a pattern which can be used to bruteforce ids.
 Password: eofm3Wsshxc5bwtVnEuGIlr7ivb9KABF
+
+Level 20 -> Level 21
+The code has two functions of interest that reads and writes session to & from file. The file just splits lines and reads the key value seprated by spaces. We can abuse that to pass admin 1 using burp repeater. 
+Inject: user%0Aadmin+1 in burpsuite
+Password: IFekPyrQXftziDEsUr3x21sYuahypdgJ
+
+

@@ -1,0 +1,64 @@
+# Nmap 7.80 scan initiated Mon Jul  6 18:35:18 2020 as: nmap -A -p0-1000 -vv -oN day7.txt 10.10.165.195
+Nmap scan report for 10.10.165.195
+Host is up, received reset ttl 252 (0.39s latency).
+Scanned at 2020-07-06 18:35:20 +0545 for 50s
+Not shown: 998 closed ports
+Reason: 998 resets
+PORT    STATE SERVICE REASON          VERSION
+22/tcp  open  ssh     syn-ack ttl 252 OpenSSH 7.4 (protocol 2.0)
+| ssh-hostkey: 
+|   2048 93:ef:e7:8c:f5:78:84:8b:19:78:c0:ce:d9:f1:3f:0b (RSA)
+| ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDlA59C6DILbnAH3yhChajn2TCAu0FUUfpY2aW1zDzYmVPW6ELd8EWfxVFoqBWMpK6q0MBZVAQz3UIUAHlXot1t+aLbIpfiAF1H4waJObGEtguf8l2QsEdr3kOxQtIt6XVY8I2v1034bYLa8yFhZwAlGYmd4g/KFospGD518IwAtf1p7VoIrRcitcBJ6Luw6gkiBwLuRMgu86f/FtwuDTZ+jGewsQECf0MG48xpNd3ETwrgNcpBvR28Mr46pJ4PLDek5UriGNDQfmNpvIfO61IPv2vPV93epfu6Ncjw8O12CHvkh5HItJsl7y/9ikwgol5PigSu/Uws2OM2z28DE29j
+|   256 5b:d0:e3:55:f0:ed:88:3f:c2:22:1c:45:5e:df:dd:b2 (ECDSA)
+| ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBIywwyZGuG7motcIolsyi2FkbgFsyHmzrq1F4S4W4CNPSmFn2Hubjlo7r6yaBTVe+pEUDOOYRtvmXxmimnG8QoM=
+|   256 ac:46:99:55:df:71:c6:e3:ad:be:fe:c1:c5:2b:fb:c9 (ED25519)
+|_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMOSYQ4+Ab4Tr6+JfubK0VUw0EL/SwQP2bAGDztR3N/w
+111/tcp open  rpcbind syn-ack ttl 252 2-4 (RPC #100000)
+| rpcinfo: 
+|   program version    port/proto  service
+|   100000  2,3,4        111/tcp   rpcbind
+|   100000  2,3,4        111/udp   rpcbind
+|   100000  3,4          111/tcp6  rpcbind
+|   100000  3,4          111/udp6  rpcbind
+|   100024  1          36175/tcp6  status
+|   100024  1          48696/udp6  status
+|   100024  1          52004/udp   status
+|_  100024  1          57111/tcp   status
+999/tcp open  http    syn-ack ttl 252 SimpleHTTPServer 0.6 (Python 3.6.8)
+| http-methods: 
+|_  Supported Methods: GET HEAD
+|_http-server-header: SimpleHTTP/0.6 Python/3.6.8
+|_http-title: Directory listing for /
+OS fingerprint not ideal because: maxTimingRatio (1.700000e+00) is greater than 1.4
+Aggressive OS guesses: Linux 3.1 (91%), Linux 3.2 (91%), AXIS 210A or 211 Network Camera (Linux 2.6.17) (90%), Linux 3.10 - 3.13 (90%), ASUS RT-N56U WAP (Linux 3.4) (89%), Linux 3.16 (89%), Linux 2.6.32 (89%), Linux 2.6.39 - 3.2 (89%), Linux 3.1 - 3.2 (89%), Linux 3.2 - 4.9 (89%)
+No exact OS matches for host (test conditions non-ideal).
+TCP/IP fingerprint:
+SCAN(V=7.80%E=4%D=7/6%OT=22%CT=1%CU=40223%PV=Y%DS=4%DC=T%G=N%TM=5F031E3E%P=x86_64-unknown-linux-gnu)
+SEQ(SP=108%GCD=3%ISR=10E%TI=Z%CI=Z%II=I%TS=A)
+OPS(O1=M508ST11NW6%O2=M508ST11NW6%O3=M508NNT11NW6%O4=M508ST11NW6%O5=M508ST11NW6%O6=M508ST11)
+WIN(W1=68DF%W2=68DF%W3=68DF%W4=68DF%W5=68DF%W6=68DF)
+ECN(R=Y%DF=Y%T=FF%W=6903%O=M508NNSNW6%CC=Y%Q=)
+T1(R=Y%DF=Y%T=FF%S=O%A=S+%F=AS%RD=0%Q=)
+T2(R=N)
+T3(R=N)
+T4(R=Y%DF=Y%T=FF%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)
+T5(R=Y%DF=Y%T=FF%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)
+T6(R=Y%DF=Y%T=FF%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)
+T7(R=Y%DF=Y%T=FF%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)
+U1(R=Y%DF=N%T=FF%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)
+IE(R=Y%DFI=N%T=FF%CD=S)
+
+Uptime guess: 38.243 days (since Fri May 29 12:46:26 2020)
+Network Distance: 4 hops
+TCP Sequence Prediction: Difficulty=263 (Good luck!)
+IP ID Sequence Generation: All zeros
+
+TRACEROUTE (using port 80/tcp)
+HOP RTT       ADDRESS
+1   284.34 ms 10.2.0.1
+2   ... 3
+4   430.95 ms 10.10.165.195
+
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Mon Jul  6 18:36:10 2020 -- 1 IP address (1 host up) scanned in 52.67 seconds
