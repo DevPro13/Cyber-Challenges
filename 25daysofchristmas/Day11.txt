@@ -1,0 +1,3 @@
+#NFS
+# mount ip:path /local/path
+password inside creds.txt: securepassword123

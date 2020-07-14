@@ -1,0 +1,6 @@
+Unzip the attachement, 
+pdf file has a img of satellite with name osmium.
+init_sat has a link to docs
+docs has base64 encoded data that hints to using wireshark sniffing tool. 
+running binary again and saving the sniffed data's in a file, we get flag
+Flag: CTF{4efcc72090af28fd33a2118985541f92e793477f}

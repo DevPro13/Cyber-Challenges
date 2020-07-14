@@ -1,0 +1,7 @@
+Attachement is a zip,
+has a ntfs boot sector,
+mount it to /mnt and read files
+Documets has a file credentials.txt which hints about extended attributes
+we can dump the values, which turns out to be a png of flag
+Flag: CTF{congratsyoufoundmycreds}
+

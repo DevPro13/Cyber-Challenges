@@ -91,4 +91,21 @@ The code has two functions of interest that reads and writes session to & from f
 Inject: user%0Aadmin+1 in burpsuite
 Password: IFekPyrQXftziDEsUr3x21sYuahypdgJ
 
+Level 21 -> Level 22
+Since sites are colocated, sessions file must be same. So creating the session for admin=1 using burpsuite and passing it to the original site we get the password
+Password: chG9fbe1Tq2eWVMgjYYD1MsfIvN461kJ
+
+Level 22 -> Level 23
+Burpsuite shows we get redirected to / if not admin, but with a get request with revelio we can get the password before being redirected to /
+Password: D0vlad33nQF0Hz2EP255TP5wSW9ZsRSE
+
+Level 23 -> Level 24
+The password contains iloveyou and is greater than 10. Quite weird but php's string to number conversions allows us to do that. 
+Inject: 11iloveyou
+Password: OsRmXFguozKpTZZ5X14zNO43379LZveg
+
+Level 24 -> Level 25
+We can exploit strcmp by throwing an error of comparing array and string.
+Inject: passwd[]=baff
+Password: GHF6X7YwACaYYssHVY05cFq83hRktl4c
 
