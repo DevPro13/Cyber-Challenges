@@ -5,7 +5,7 @@ with open('./cattos.jpg', 'rb') as f:
   cattos = f.read()
 
 flag = ''
-for i in range(min(len(kitters), len(cattos))):
+for i in range(len(cattos)):
   if kitters[i] != cattos[i]:
     flag += chr(cattos[i])
 print(flag)
