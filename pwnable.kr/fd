@@ -1,0 +1,4 @@
+The file descriptor has value 0, 1 and 2 
+So we can input either of 0x1234+1 or 0x1234+2 as argument with ./fd and input LETMEIN to get the flag. 0x1234 also works becoz both STDIN and STDOUT are same i.e terminal
+Flag: mommy! I think I know what a file descriptor is!!
+
