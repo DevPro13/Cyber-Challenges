@@ -1,0 +1,5 @@
+hashcode = 0x21DD09EC
+We need a payload that sums up to the above hashcode.
+With some maths we get the payload values, reverse them for little endinan and get the flag.
+
+flag: daddy! I just managed to create a hash collision :)
