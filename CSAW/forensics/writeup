@@ -1,0 +1,31 @@
+kill:
+strings & grep
+flag: flag{roses_r_blue_violets_r_r3d_mayb3_harambae_is_not_kill}
+
+encrypted.zip
+CRC of the zip has hex encoded values
+flag: flag{th3_vi11i4n_w3_n33d_#freeleffen}   
+
+Big Data
+using wireshark look at the telnet port for data
+flag: flag{bigdataisaproblemnotasolution} 
+
+black and white
+the image looks white but is composed of rgb of 254 and 255, convert 254 to 0 and we get the flag
+flag: key{forensics_is_fun}
+
+keep calm and ctf
+exiftool 
+flag: h1d1ng_in_4lm0st_pla1n_sigh7
+
+flash
+strings again
+flag: flag{b3l0w_th3_r4dar}
+
+dumpster driving
+flag was inside the df.txt
+flag: flag{0cb5b778715ccb6b300892e974e2f427}
+
+Obscurity
+flag was inside the above challenge folder, idk if it was by mistake or xD 
+flag: flag{security_through_obscurity}

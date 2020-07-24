@@ -1,0 +1,12 @@
+eps: ones_and_zer0es
+convert binary digits to ascii
+flag: flat{People always make the best exploits.}
+
+eps: wh1ter0se
+shifting the characters didn't work, online tools worked
+flag: BUT NO, IT WAS A SHORT CUT TO SOMETHING BIGGER. SOMETHING GRANDER. SOMETHING BEAUTIFUL. WE'VE BEEN FOCUSED ON WHAT'S IN FRONT OF US. BUT WE HAVEN'T BEEN LOOKING AT WHAT'S ABOVE US.
+
+eps: zer0_day
+the contents were base64 and seprated by \n, last two lines were the ones containing flag
+flag: flag{We are fsociety, we are finally free, we are finally awake!}
+
