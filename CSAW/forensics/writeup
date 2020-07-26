@@ -29,3 +29,15 @@ flag: flag{0cb5b778715ccb6b300892e974e2f427}
 Obscurity
 flag was inside the above challenge folder, idk if it was by mistake or xD 
 flag: flag{security_through_obscurity}
+
+Airport
+flag was the steghide of steghide logo while password for it was the IATA codes of airports, google search.
+flag: iH4t3A1rp0rt5
+
+Mandiant
+multiple layers of stegno.
+flag:  flag{s3v3r4l_l4y3r5_d33p_&_2m4ny_l4yers_w1d3}
+
+Ransomewhere
+a DOS/MBR sector which has a png encryted using SSL
+flag: yo mama so fat, she can't store files larger than 4 GB
