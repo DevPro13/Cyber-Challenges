@@ -106,3 +106,14 @@ venv.bak/
 # JohnTheRipper
 JohnTheRipper/
 assets/
+
+# ssh
+id_rsa*
+
+# db
+rockyou*
+wordlist*
+
+# misc
+bizzaro/
+app/

