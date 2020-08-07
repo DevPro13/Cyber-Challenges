@@ -25,5 +25,6 @@ for v in values:
         print("Yaay ..... Flag Found ...")
         print(data)
         break
+    print(shell.recvS())
     shell.send(str(v))
 
